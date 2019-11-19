@@ -33,7 +33,8 @@
     "events": "^3.0.0",
     "h264-profile-level-id": "^1.0.0",
     "npm-check-updates": "^3.1.25",
-    "sdp-transform": "^2.13.0"
+    "sdp-transform": "^2.13.0",
+    "mobx": "^5.9.4",
   },
   "devDependencies": {
     "eslint": "^6.6.0",
