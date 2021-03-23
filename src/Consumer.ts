@@ -36,6 +36,8 @@ export class Consumer extends EnhancedEventEmitter
 	private readonly _appData: any;
 	// Observer instance.
 	protected readonly _observer = new EnhancedEventEmitter();
+	// Note: used for video stream render in react-native.
+	private readonly _reactTag: any;
 
 	/**
 	 * @emits transportclose
@@ -51,7 +53,8 @@ export class Consumer extends EnhancedEventEmitter
 			rtpReceiver,
 			track,
 			rtpParameters,
-			appData
+			appData,
+			reactTag
 		}:
 		{
 			id: string;
@@ -61,6 +64,7 @@ export class Consumer extends EnhancedEventEmitter
 			track: MediaStreamTrack;
 			rtpParameters: RtpParameters;
 			appData: any;
+			reactTag: string
 		}
 	)
 	{
@@ -76,6 +80,7 @@ export class Consumer extends EnhancedEventEmitter
 		this._rtpParameters = rtpParameters;
 		this._paused = !track.enabled;
 		this._appData = appData;
+		this._reactTag = reactTag;
 		this._onTrackEnded = this._onTrackEnded.bind(this);
 
 		this._handleTrack();
@@ -167,6 +172,14 @@ export class Consumer extends EnhancedEventEmitter
 	set appData(appData) // eslint-disable-line no-unused-vars
 	{
 		throw new Error('cannot override appData object');
+	}
+
+	/**
+	 * App custom data.
+	 */
+	get reactTag(): any
+	{
+		return this._reactTag;
 	}
 
 	/**

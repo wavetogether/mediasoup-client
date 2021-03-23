@@ -60,6 +60,7 @@ export type HandlerReceiveResult =
 	localId: string;
 	track: MediaStreamTrack;
 	rtpReceiver?: RTCRtpReceiver;
+	reactTag: string
 };
 
 export type HandlerSendDataChannelOptions = SctpStreamParameters;

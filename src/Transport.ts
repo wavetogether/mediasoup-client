@@ -594,7 +594,7 @@ export class Transport extends EnhancedEventEmitter
 				if (!canConsume)
 					throw new UnsupportedError('cannot consume this Producer');
 
-				const { localId, rtpReceiver, track } =
+				const { localId, rtpReceiver, track, reactTag } =
 					await this._handler.receive({ trackId: id, kind, rtpParameters });
 
 				const consumer = new Consumer(
@@ -605,7 +605,8 @@ export class Transport extends EnhancedEventEmitter
 						rtpReceiver,
 						track,
 						rtpParameters,
-						appData
+						appData,
+						reactTag
 					});
 
 				this._consumers.set(consumer.id, consumer);

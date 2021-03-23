@@ -627,6 +627,7 @@ export class ReactNative extends HandlerInterface
 		const stream = this._pc.getRemoteStreams()
 			.find((s: MediaStream) => s.id === streamId);
 		const track = stream.getTrackById(localId);
+		const reactTag = stream.toURL();
 
 		if (!track)
 			throw new Error('remote track not found');
@@ -634,7 +635,7 @@ export class ReactNative extends HandlerInterface
 		// Insert into the map.
 		this._mapRecvLocalIdInfo.set(localId, { mid, rtpParameters });
 
-		return { localId, track };
+		return { localId, track, reactTag };
 	}
 
 	async stopReceiving(localId: string): Promise<void>
