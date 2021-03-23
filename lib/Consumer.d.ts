@@ -18,13 +18,14 @@ export declare class Consumer extends EnhancedEventEmitter {
     private _paused;
     private readonly _appData;
     protected readonly _observer: EnhancedEventEmitter;
+    private readonly _reactTag;
     /**
      * @emits transportclose
      * @emits trackended
      * @emits @getstats
      * @emits @close
      */
-    constructor({ id, localId, producerId, rtpReceiver, track, rtpParameters, appData }: {
+    constructor({ id, localId, producerId, rtpReceiver, track, rtpParameters, appData, reactTag }: {
         id: string;
         localId: string;
         producerId: string;
@@ -32,6 +33,7 @@ export declare class Consumer extends EnhancedEventEmitter {
         track: MediaStreamTrack;
         rtpParameters: RtpParameters;
         appData: any;
+        reactTag: string;
     });
     /**
      * Consumer id.
@@ -77,6 +79,10 @@ export declare class Consumer extends EnhancedEventEmitter {
      * Invalid setter.
      */
     set appData(appData: any);
+    /**
+     * App custom data.
+     */
+    get reactTag(): any;
     /**
      * Observer.
      *

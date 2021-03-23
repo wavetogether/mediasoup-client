@@ -344,7 +344,7 @@ export class FakeHandler extends HandlerInterface
 
 		this._tracks.set(localId, track);
 
-		return { localId: String(localId), track };
+		return { localId: String(localId), track, reactTag: String(localId) };
 	}
 
 	async stopReceiving(localId: string): Promise<void>
