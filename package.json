@@ -41,7 +41,7 @@
     "debug": "^4.3.1",
     "events": "^3.3.0",
     "h264-profile-level-id": "^1.0.1",
-    "mobx": "^6.1.8",
+    "mobx": "^5.9.4",
     "sdp-transform": "^2.14.1",
     "supports-color": "^8.1.1"
   },
