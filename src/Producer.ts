@@ -1,3 +1,4 @@
+import { computed, observable } from 'mobx';
 import { Logger } from './Logger';
 import { EnhancedEventEmitter } from './EnhancedEventEmitter';
 import { UnsupportedError, InvalidStateError } from './errors';
@@ -53,7 +54,7 @@ export class Producer extends EnhancedEventEmitter
 	// RTP parameters.
 	private readonly _rtpParameters: RtpParameters;
 	// Paused flag.
-	private _paused: boolean;
+	@observable private _paused: boolean;
 	// Video max spatial layer.
 	private _maxSpatialLayer: number | undefined;
 	// Whether the Producer should call stop() in given tracks.
@@ -184,7 +185,7 @@ export class Producer extends EnhancedEventEmitter
 	/**
 	 * Whether the Producer is paused.
 	 */
-	get paused(): boolean
+	@computed get paused(): boolean
 	{
 		return this._paused;
 	}
