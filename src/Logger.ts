@@ -38,13 +38,13 @@ export class Logger
 
 	get warn(): debug.Debugger
 	{
-		this._debug.enable('*');
+		this._warn.enable('*');
 		return this._warn;
 	}
 
 	get error(): debug.Debugger
 	{
-		this._debug.enable('*');
+		this._error.enable('*');
 		return this._error;
 	}
 }
