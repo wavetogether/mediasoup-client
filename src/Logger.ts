@@ -32,16 +32,19 @@ export class Logger
 
 	get debug(): debug.Debugger
 	{
+		this._debug.enable('*');
 		return this._debug;
 	}
 
 	get warn(): debug.Debugger
 	{
+		this._debug.enable('*');
 		return this._warn;
 	}
 
 	get error(): debug.Debugger
 	{
+		this._debug.enable('*');
 		return this._error;
 	}
 }
